@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background-color: #0f1117;
+    color: #e2e8f0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #4f46e5; }
+}
+
+@layer components {
+  /* Message bubbles */
+  .bubble-out {
+    @apply bg-primary-600 text-white rounded-2xl rounded-br-sm px-4 py-2 max-w-xs md:max-w-md break-words shadow-lg;
+  }
+  .bubble-in {
+    @apply bg-chat-surface text-slate-100 rounded-2xl rounded-bl-sm px-4 py-2 max-w-xs md:max-w-md break-words shadow-md border border-chat-border;
+  }
+
+  /* Input field */
+  .input-field {
+    @apply w-full bg-chat-surface border border-chat-border rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-xl
+           transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           focus:ring-offset-chat-bg disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98];
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply bg-transparent hover:bg-chat-surface text-slate-400 hover:text-slate-200 px-3 py-2 rounded-lg transition-all duration-150;
+  }
+
+  /* Sidebar user item */
+  .user-item {
+    @apply flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2
+           hover:bg-chat-surface transition-all duration-150 border border-transparent;
+  }
+  .user-item-active {
+    @apply bg-chat-surface border-chat-border;
+  }
+
+  /* Status badge */
+  .status-online {
+    @apply absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 rounded-full border-2 border-chat-sidebar;
+  }
+  .status-offline {
+    @apply absolute bottom-0 right-0 w-3 h-3 bg-slate-500 rounded-full border-2 border-chat-sidebar;
+  }
+}
+
+/* Typing indicator dots */
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6366f1;
+  animation: bounceDot 1.2s infinite ease-in-out;
+}
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+.typing-dot:nth-child(3) { animation-delay: 0s; }
+
+@keyframes bounceDot {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.4; }
+  40%           { transform: scale(1); opacity: 1;   }
+}
