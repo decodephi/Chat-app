@@ -2,29 +2,29 @@
 
 A full-stack real-time chat application.
 
+![alt text](<image.jpeg>)
 
 
----
 
 ## ✨ Features
 
-| Feature 
-|---|---|
-| User Registration & Login
-| JWT Authentication (cookie + header)
-| Real-time 1-to-1 messaging via Socket.IO
-| Online / offline user status 
-| Typing indicators 
-| Message timestamps 
-| Chat history stored in MongoDB 
-| Message deletion 
-| User search 
-| Password strength indicator 
-| Emoji picker 
-| Responsive UI (mobile + desktop) 
-| Protected routes 
-| Auto-scroll to latest message 
-| Date separators in chat
+Features 
+
+User Registration & Login
+JWT Authentication (cookie + header)
+Real-time 1-to-1 messaging via Socket.IO
+Online / offline user status 
+Typing indicators 
+Message timestamps 
+Chat history stored in MongoDB 
+Message deletion 
+User search 
+Password strength indicator 
+Emoji picker 
+Responsive UI (mobile + desktop) 
+Protected routes 
+Auto-scroll to latest message 
+Date separators in chat
 
 
 

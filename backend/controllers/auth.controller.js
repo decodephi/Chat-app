@@ -2,6 +2,8 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 // ── Helper: sign JWT and set cookie ─────────────────────────
+
+
 const generateToken = (userId, res) => {
   const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
     expiresIn: "7d",
@@ -9,10 +11,10 @@ const generateToken = (userId, res) => {
 
   // HTTP-only cookie so JS can't access it (XSS protection)
   res.cookie("jwt", token, {
-    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in ms
+    maxAge: 7 * 24 * 60 * 60 * 1000, 
     httpOnly: true,
-    sameSite: "strict",
-    secure: process.env.NODE_ENV === "production",
+    secure: isProduction, 
+    sameSite: isProduction ? "None" : "strict", 
   });
 
   return token;
