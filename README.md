@@ -8,7 +8,7 @@ A full-stack real-time chat application.
 
 ## ✨ Features
 
-| Feature | Status |
+| Feature 
 |---|---|
 | User Registration & Login
 | JWT Authentication (cookie + header)
