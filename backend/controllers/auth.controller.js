@@ -9,6 +9,9 @@ const generateToken = (userId, res) => {
     expiresIn: "7d",
   });
 
+
+  const isProduction = process.env.NODE_ENV === "production"; 
+
   // HTTP-only cookie so JS can't access it (XSS protection)
   res.cookie("jwt", token, {
     maxAge: 7 * 24 * 60 * 60 * 1000, 
@@ -107,7 +110,15 @@ const login = async (req, res, next) => {
 // @access  Private
 // ─────────────────────────────────────────────────────────────
 const logout = (req, res) => {
-  res.cookie("jwt", "", { maxAge: 0 });
+  const isProduction = process.env.NODE_ENV === "production"; 
+
+  res.cookie("jwt", "", {
+    maxAge: 0,
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? "None" : "strict",
+  });
+
   res.status(200).json({ success: true, message: "Logged out successfully" });
 };
 
