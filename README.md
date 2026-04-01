@@ -2,7 +2,7 @@
 
 NexChat is a full-stack real-time chat application built using the MERN stack with Socket.IO for instant communication. It allows users to connect, chat, and interact seamlessly with a modern and responsive interface.
 
-🔗 Live Demo: https://chat-app-two-zeta-42.vercel.app/
+🔗 Live Demo: https://chat-app-two-zata-52.vercel.app/
 
 ## Overview
 
